@@ -1,5 +1,5 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
-import { ChatMessagesComponent, IChatMessagesProps } from "./ChatMessagesComponent";
+import { ChatMessagesComponent, IChatMessagesProps } from "./components/ChatMessagesComponent";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
@@ -31,8 +31,8 @@ export class ChatMessages implements ComponentFramework.StandardControl<IInputs,
         iconWidth: context.parameters.iconWidth.raw || 0,
         imageBorderRadius: context.parameters.imageBorderRadius.raw || 0,
         availableHeight: context.mode.allocatedHeight || 200,
-        fontSize: context.parameters.fontSize.raw || 12, // default to 14 if not provided
-        fontFamily: context.parameters.fontFamily.raw || 'Segoe UI', // default to Arial if not provided
+        fontSize: context.parameters.fontSize.raw || 12,
+        fontFamily: context.parameters.fontFamily.raw || 'Segoe UI',
         autoScroll: context.parameters.autoScroll.raw,
       };
       

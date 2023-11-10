@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Label, Image } from '@fluentui/react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import './css/style.css';
-
+import '../css/style.css';
 
 export interface IChatMessagesProps {
   conversationData: string;
@@ -84,7 +83,32 @@ export const ChatMessagesComponent: React.FC<IChatMessagesProps> = (props) => {
             <Label style={{ margin: 0, padding: "0px 0px 3px 0px" }}>{message.sender === 'agent' ? chatAgentName : senderName}</Label>
             <div className="no-margin">
               {message.sender === 'agent' ? 
-                <MarkdownPreview className="no-margin markdown-preview" source={message.content} />
+             <MarkdownPreview
+             className="no-margin markdown-preview"
+             source={message.content}
+             components={{
+               // @ts-ignore
+               img: ({node, ...props}) => (
+                 <div style={{ position: 'relative', display: 'inline-block' }}>
+                   <a href={props.src} download>
+                     <img {...props} style={{cursor: 'pointer', borderRadius: '7px', width: '150px', height: '150px'}} title="Click to download" />
+                     <div style={{ position: 'absolute', right: 0, bottom: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', opacity: 0, transition: 'opacity 0.3s', borderRadius: '7px' }} className="image-overlay">
+                     </div>
+                   </a>
+                 </div>
+               )
+             }}
+           />
+           
+
+ 
+ 
+       
+           
+            
+              
+              
+              
                 : <p className="no-margin">{message.content}</p>
               }
             </div>

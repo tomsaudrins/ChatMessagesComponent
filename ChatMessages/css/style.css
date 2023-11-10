@@ -21,3 +21,8 @@
     border-radius: 7px !important;
     width: 150px !important;
   }
+  
+  .image-overlay:hover {
+    opacity: 1 !important;
+  }
+  
