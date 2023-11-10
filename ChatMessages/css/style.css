@@ -1,0 +1,23 @@
+.no-margin > * {
+    margin: 0 !important;
+  }
+  
+  p.no-margin {
+    margin: 0 !important;
+  }
+  .no-margin {
+    margin: 0 !important;
+  }
+
+  .markdown-preview {
+    font-size: inherit !important;
+  }
+
+  ::webkit-scrollbar-button { 
+    display:none;
+   }
+
+   .wmde-markdown img { 
+    border-radius: 7px !important;
+    width: 150px !important;
+  }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="tomsaudrins" constructor="ChatMessages" version="0.0.1" display-name-key="ChatMessages" description-key="ChatMessages description" control-type="virtual" >
+    <external-service-usage enabled="false" />
+      <property name="conversationData" display-name-key="Conversation Data" description-key="Conversation Data" of-type="SingleLine.Text" usage="input" required="true" />
+      <property name="senderImage" display-name-key="Sender Image" description-key="Sender Image" of-type="SingleLine.Text" usage="input" required="true" />
+      <property name="chatAgentImage" display-name-key="Chat Agent Image" description-key="Chat Agent Image" of-type="SingleLine.Text" usage="input" required="true" />
+      <property name="senderName" display-name-key="Sender Name" description-key="Sender Name" of-type="SingleLine.Text" usage="input" required="true" />
+      <property name="chatAgentName" display-name-key="Chat Agent Name" description-key="Chat Agent Name" of-type="SingleLine.Text" usage="input" required="true" />
+      <property name="iconHeight" display-name-key="Icon Height" description-key="Icon Height" of-type="Whole.None" usage="input" required="true" />
+      <property name="iconWidth" display-name-key="Icon Width" description-key="Icon Width" of-type="Whole.None" usage="input" required="true" />
+     <property name="imageBorderRadius" display-name-key="Image Border Radius" description-key="Image Border Radius" of-type="Whole.None" usage="input" required="true" />
+      <property name="fontSize" display-name-key="Font Size" description-key="Font Size" of-type="Whole.None" usage="input" required="true" />
+      <property name="fontFamily" display-name-key="Font Family" description-key="Font Family" of-type="SingleLine.Text" usage="input" required="true" />
+      <property name="autoScroll" display-name-key="Auto Scroll" description-key="Whether to auto-scroll to the bottom when a new message is added" of-type="TwoOptions" usage="bound" required="false" default-value="1" />
+    <resources>
+      <code path="index.ts" order="1"/>
+      <platform-library name="React" version="16.8.6" />
+      <platform-library name="Fluent" version="8.29.0" />
+    </resources>
+  </control>
+</manifest>
