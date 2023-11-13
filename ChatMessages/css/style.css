@@ -26,3 +26,16 @@
     opacity: 1 !important;
   }
   
+  .message-container:hover .copy-button {
+    opacity: 1 !important;
+  }
+  
+  .image-hover:hover {
+    opacity: 0.7 !important;
+  }
+  .wmde-markdown pre .copied {
+    position: absolute !important;
+    top: 6px !important;
+    right: 6px !important;
+    padding: 6px !important;
+  }
