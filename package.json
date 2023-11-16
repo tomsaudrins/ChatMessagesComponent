@@ -15,8 +15,11 @@
   "dependencies": {
     "@fluentui/react": "8.29.0",
     "@uiw/react-markdown-preview": "^4.2.2",
+    "highlight.js": "^11.9.0",
+    "office-ui-fabric-react": "^7.204.0",
     "react": "16.8.6",
-    "react-dom": "16.8.6"
+    "react-dom": "16.8.6",
+    "react-loading-skeleton": "^3.3.1"
   },
   "devDependencies": {
     "@microsoft/eslint-plugin-power-apps": "^0.2.6",

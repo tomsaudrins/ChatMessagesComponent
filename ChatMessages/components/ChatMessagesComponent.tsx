@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { Label, Image, IconButton } from '@fluentui/react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
+import 'highlight.js/styles/github.css';
 import '../css/style.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export interface IChatMessagesProps {
   conversationData: string;
@@ -16,6 +19,7 @@ export interface IChatMessagesProps {
   fontSize: number;
   fontFamily: string;
   autoScroll?: boolean;
+  showLoader?: boolean;
 }
 
 export const ChatMessagesComponent: React.FC<IChatMessagesProps> = (props) => {
@@ -31,7 +35,8 @@ export const ChatMessagesComponent: React.FC<IChatMessagesProps> = (props) => {
     availableHeight, 
     fontSize, 
     fontFamily,
-    autoScroll = true
+    autoScroll = true,
+    showLoader = false
   } = props;
   
   let messages;
@@ -54,6 +59,32 @@ export const ChatMessagesComponent: React.FC<IChatMessagesProps> = (props) => {
     }
     prevMessagesLengthRef.current = messages.length;
   }, [messages, autoScroll]);
+  
+
+  if (showLoader) {
+    const estimatedItemHeight = 80; 
+    const itemCount = Math.floor(availableHeight / estimatedItemHeight);
+  
+    return (
+      <div 
+        style={{ 
+          height: `${availableHeight}px`, 
+          padding: '1em',
+        }}
+      >
+        {Array(itemCount).fill(null).map((_, index) => (
+          <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '1em' }}>
+            <Skeleton circle={true} height={iconHeight} width={iconWidth} style={{ marginRight: '1em' }} />
+            <div style={{ flex: 1, textAlign: 'left' }}>
+              <Skeleton width={'15%'} />
+              <Skeleton count={2} />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  
   
 
   return (
@@ -90,9 +121,12 @@ export const ChatMessagesComponent: React.FC<IChatMessagesProps> = (props) => {
             />
           </div>
           <div style={{ display: 'inline-block', maxWidth: '80%' }}>
+            
             <Label style={{ margin: 0, padding: "0px 0px 3px 0px" }}>{message.sender === 'agent' ? chatAgentName : senderName}</Label>
             <div className="no-margin">
               {message.sender === 'agent' ? 
+                <div id="mdViewer">
+                <div className="wmde-markdown-var"> </div>
                 <MarkdownPreview
                 className="no-margin markdown-preview"
                 source={message.content}
@@ -104,7 +138,12 @@ export const ChatMessagesComponent: React.FC<IChatMessagesProps> = (props) => {
                     </a>
                   )
                 }}
-              />
+                rehypeRewrite={(node: any, index: any, parent: any) => {
+                  if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
+                    parent.children = parent.children.slice(1)
+                  }
+                }}
+              /> </div>
               
               
               

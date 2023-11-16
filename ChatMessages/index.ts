@@ -2,6 +2,7 @@ import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import { ChatMessagesComponent, IChatMessagesProps } from "./components/ChatMessagesComponent";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export class ChatMessages implements ComponentFramework.StandardControl<IInputs, IOutputs> {
   private notifyOutputChanged: () => void;
@@ -34,6 +35,7 @@ export class ChatMessages implements ComponentFramework.StandardControl<IInputs,
         fontSize: context.parameters.fontSize.raw || 12,
         fontFamily: context.parameters.fontFamily.raw || 'Segoe UI',
         autoScroll: context.parameters.autoScroll.raw,
+        showLoader: context.parameters.showLoader.raw,
       };
       
 

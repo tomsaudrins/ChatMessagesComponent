@@ -13,6 +13,8 @@
       <property name="fontSize" display-name-key="Font Size" description-key="Font Size" of-type="Whole.None" usage="input" required="true" />
       <property name="fontFamily" display-name-key="Font Family" description-key="Font Family" of-type="SingleLine.Text" usage="input" required="true" />
       <property name="autoScroll" display-name-key="Auto Scroll" description-key="Whether to auto-scroll to the bottom when a new message is added" of-type="TwoOptions" usage="bound" required="false" default-value="1" />
+      <property name="showLoader" display-name-key="Show Loader" description-key="Show or hide the loading screen" of-type="TwoOptions" usage="bound" required="false" default-value="0" />
+
     <resources>
       <code path="index.ts" order="1"/>
       <platform-library name="React" version="16.8.6" />
